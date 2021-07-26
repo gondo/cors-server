@@ -3,25 +3,28 @@
     <title>CORS Tester</title>
 </head>
 <body>
-    <h1>CORS Tester</h1>
-    <div id="output">Loading ...</div>
-    <script>
-        fetch('http://localhost:2222/data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                abc: 'Def ghj',
-                number: 123
-            })
+<h1>CORS Tester</h1>
+<div id="output">Loading ...</div>
+<script>
+    fetch('http://localhost:1111/data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            abc: 'Def ghj',
+            number: 123
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                document.getElementById('output').innerHTML = JSON.stringify(data)
-            })
-            .catch(error => console.log(error))
-    </script>
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById('output').innerHTML = JSON.stringify(data)
+        })
+        .catch(error => {
+            console.log(error)
+            document.getElementById('output').innerHTML = error
+        })
+</script>
 </body>
 </html>
